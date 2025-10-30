@@ -137,9 +137,9 @@ This guide provides general information and should not be considered legal or co
 
 ## 📬 Connect
 
-- **Author**: [Your Name]
-- **LinkedIn**: [Your LinkedIn Profile]
-- **Medium**: [Your Medium Profile]
+- **Author**: Jake Boyd
+- **[LinkedIn](www.linkedin.com/in/boydjake)**
+- **[Medium](https://medium.com/@jakeboyd)**
 - **Questions?** Open an issue or reach out!
 
 ## 📄 License
