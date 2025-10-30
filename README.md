@@ -115,6 +115,27 @@ Most AWS services required for SOC 2 compliance fit within free tier or cost < $
 3. Ensure all required AWS services are included
 4. Document deviations and compensating controls
 
+## 🏗️ Reference Architectures
+
+### 1. SOC 2 Compliant Web Application
+
+![SOC 2 Compliant Web Application Architecture](https://github.com/user-attachments/assets/0b77fb5b-139f-44cf-adfc-ab36384bcc5c) />
+
+
+
+**This architecture demonstrates:**
+- **High Availability** (Multi-AZ, Auto Scaling) - Addresses A1.x controls
+- **Data Encryption** (KMS, TLS) - Addresses C1.x controls  
+- **Access Controls** (Security Groups, IAM) - Addresses CC6.x controls
+- **Monitoring & Logging** (CloudTrail, CloudWatch, Config) - Addresses CC7.x controls
+- **Threat Detection** (GuardDuty, Security Hub) - Addresses CC9.x controls
+
+**Estimated Monthly Cost**: $150-300 for small production workload
+
+**[Download High-Res PDF](diagrams/soc2-compliant-web-app.pdf)** | **[Edit Source File](diagrams/source-files/soc2-compliant-web-app.drawio)**
+
+---
+
 ## 🤝 Contributing
 
 This is a living document! Contributions are welcome:
