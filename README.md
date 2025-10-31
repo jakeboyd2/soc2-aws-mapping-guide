@@ -67,8 +67,8 @@ This guide helps organizations preparing for SOC 2 Type II certification underst
 ├── resources/
 |   ├── AICPA Trust Service Criteria 2017.pdf    # Trust Services Criteria 
 |   └── aws.md                                   # AWS resources
-├── LICENSE                # MIT license
-└── README.md              # You are here
+├── LICENSE       # MIT license
+└── README.md     # You are here
 
 
 ```
