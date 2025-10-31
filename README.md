@@ -47,14 +47,15 @@ This guide helps organizations preparing for SOC 2 Type II certification underst
 |   ├── multi-account-organization-structure.png
 |   ├── secure-data-storage-and-encryption.png
 │   └── soc2-compliant-web-app.png
-├── mappings/
-│   ├── SOC2-AWS-Master-Mapping.xlsx     # Main mapping spreadsheet
-│   ├── SOC2-AWS-Master-Mapping.pdf      # PDF version for easy sharing
-│   └── control-details/                  # Detailed guides per control family
-│       ├── CC1-control-environment.md
-│       ├── CC6-logical-access.md
-│       ├── CC7-system-operations.md
-│       └── CC8-change-management.md
+└── mappings/
+    ├── SOC2-AWS-Master-Mapping.xlsx     # Main mapping spreadsheet
+    ├── SOC2-AWS-Master-Mapping.pdf      # PDF version for easy sharing
+    └── control-details/                 # Detailed guides per control family
+        ├── CC1-control-environment.md
+        ├── CC3-risk-assessment.md
+        ├── CC6-logical-access.md
+        ├── CC7-system-operations.md
+        └── CC8-change-management.md
 
 ```
 
