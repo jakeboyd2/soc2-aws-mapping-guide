@@ -1,725 +1,347 @@
-# SOC 2 Audit Evidence Collection Guide for AWS
-
-## Purpose
-This guide provides a systematic approach to collecting evidence for SOC 2 Type 2 audits. Collecting evidence continuously (not just during audit prep) reduces stress and demonstrates mature processes.
+# SOC 2 Type 2 Audit Evidence Collection Checklist
 
 ## Evidence Collection Strategy
 
-### Timing
-- **Continuous:** Automated evidence collection runs daily/weekly
-- **Quarterly:** Manually review and package evidence
-- **Pre-Audit:** Final validation 2 weeks before audit kickoff
-
-### Storage
-- Create S3 bucket: `soc2-audit-evidence-[year]`
-- Enable versioning and encryption
-- Structure: `/{control-family}/{control-id}/{YYYY-MM-DD}/`
-- Retention: 7 years minimum
+### Timing & Organization
+- **Continuous**: Collect evidence as controls operate throughout the audit period
+- **Quarterly**: Review and organize collected evidence
+- **Pre-Audit**: Final validation 2 weeks before audit kickoff
+- **Retention**: Maintain evidence for 7 years minimum
+- **Storage Structure**: Organize by Trust Services Criteria category and control ID
 
 ---
 
 ## CC1: Control Environment
 
 ### CC1.1: Integrity and Ethical Values
+**Evidence to Collect:**
+- [ ] Code of conduct document (current version)
+- [ ] Ethics training completion records for all personnel
+- [ ] Background check policy and completion records
+- [ ] Board/management meeting minutes demonstrating ethics discussions
+- [ ] Evidence of deviations from standards and remediation actions
+- [ ] Contractor and vendor employee acknowledgment of conduct standards
 
-**Evidence Type:** Policies and procedures
-**Collection Method:** Manual upload
-**Frequency:** Annual or when updated
-
-**What to Collect:**
-- [ ] Code of conduct document
-- [ ] Ethics training completion records
-- [ ] Background check policy
-- [ ] Board meeting minutes (sanitized) showing ethics discussions
-
-**Storage Location:** `/CC1/CC1.1/policies/`
-
-**Audit Tip:** Auditors want to see that people actually read these, not just that they exist. Include training completion reports.
+**Points of Focus:**
+- Demonstrate tone at the top through actions and communications  
+- Show standards are understood across organization  
+- Document evaluation of adherence to standards  
+- Evidence timely remediation of deviations  
 
 ---
 
-### CC1.2: Board Independence
-
-**Evidence Type:** Governance documents
-**Collection Method:** Manual
-
-**What to Collect:**
-- [ ] Board composition documentation
-- [ ] Board meeting minutes showing security oversight
+### CC1.2: Board Independence and Oversight
+**Evidence to Collect:**
+- [ ] Board composition documentation showing independence
 - [ ] Board charter or bylaws
-- [ ] Security steering committee notes
-
-**Storage Location:** `/CC1/CC1.2/governance/`
+- [ ] Board meeting minutes showing security/privacy oversight
+- [ ] Security steering committee charter and meeting minutes
+- [ ] Evidence of board expertise in TSC areas
+- [ ] Documentation of board subcommittee activities (if applicable)
 
 ---
 
 ### CC1.3: Organizational Structure
-
-**Evidence Type:** Organizational charts and role definitions
-**Collection Method:** Manual
-
-**What to Collect:**
-- [ ] Organization chart with security team
-- [ ] Security team roles and responsibilities
-- [ ] AWS account access matrix
-- [ ] Delegation of authority documentation
-
-**Storage Location:** `/CC1/CC1.3/org-structure/`
-
-**AWS-Specific Evidence:**
-```bash
-# Export IAM users and their group memberships
-aws iam get-account-authorization-details > iam-structure-$(date +%Y-%m-%d).json
-
-# Export AWS Organizations structure
-aws organizations describe-organization > org-structure-$(date +%Y-%m-%d).json
-```
+**Evidence to Collect:**
+- [ ] Current organizational chart including security/IT teams
+- [ ] Roles and responsibilities documentation
+- [ ] Delegation of authority matrix
+- [ ] Reporting lines documentation
+- [ ] Vendor/outsourced provider oversight structure
+- [ ] Documentation showing structures support objectives
 
 ---
 
 ### CC1.4: Commitment to Competence
-
-**Evidence Type:** Training records
-**Collection Method:** Manual + screenshots
-
-**What to Collect:**
-- [ ] AWS training completion certificates
-- [ ] Security awareness training records
-- [ ] Technical skill matrix for team
-- [ ] AWS certification status
-
-**Storage Location:** `/CC1/CC1.4/training/`
+**Evidence to Collect:**
+- [ ] Job descriptions with competency requirements
+- [ ] Training program documentation
+- [ ] Training completion records
+- [ ] Professional certification tracking
+- [ ] Performance evaluation templates
+- [ ] Succession planning documentation
+- [ ] New hire competency assessments
+- [ ] Background check results (personnel, contractors, vendors)
 
 ---
 
 ### CC1.5: Accountability
+**Evidence to Collect:**
+- [ ] Performance measurement documentation
+- [ ] Security-related performance goals and results
+- [ ] Performance review process documentation
+- [ ] Incentive and rewards structure
+- [ ] Disciplinary action procedures
+- [ ] Corrective action evidence
 
-**Evidence Type:** Performance evaluations and incentive structures
-**Collection Method:** Manual (sanitized)
+---
 
-**What to Collect:**
-- [ ] Security performance metrics
-- [ ] Performance review templates
-- [ ] Incident response participation records
-- [ ] Security goal achievement documentation
+## CC2: Communication and Information
+
+### CC2.1: Information Quality
+**Evidence to Collect:**
+- [ ] Documentation of information requirements
+- [ ] Data quality review procedures and results
+- [ ] Information system data source documentation
+- [ ] Records retention policies and schedules
+- [ ] Evidence of timely, accurate, complete, and accessible info
+
+---
+
+### CC2.2: Internal Communication
+**Evidence to Collect:**
+- [ ] Control responsibility communications
+- [ ] Security awareness training materials and records
+- [ ] Incident reporting procedures
+- [ ] Whistle-blower mechanism documentation
+- [ ] Communications on changes to objectives/responsibilities
+- [ ] System operation documentation
+- [ ] Board communications on control effectiveness
+
+---
+
+### CC2.3: External Communication
+**Evidence to Collect:**
+- [ ] Customer communications about services/commitments
+- [ ] Privacy notice/policy
+- [ ] Service level agreements
+- [ ] Vendor/partner communications
+- [ ] External feedback mechanisms
+- [ ] Regulator communications (if applicable)
+- [ ] System boundary documentation for external users
+
+---
+
+## CC3: Risk Assessment
+
+### CC3.1: Objectives Specification
+**Evidence to Collect:**
+- [ ] Documented entity objectives
+- [ ] Service commitments and requirements
+- [ ] Product specifications (for supply chain)
+- [ ] Risk tolerance documentation
+- [ ] TSC sub-objectives (security, availability, etc.)
+
+---
+
+### CC3.2: Risk Identification and Analysis
+**Evidence to Collect:**
+- [ ] Risk assessment methodology
+- [ ] Risk register/inventory including:
+  - Asset inventory with criticality ratings  
+  - Identified threats and vulnerabilities  
+  - Risk likelihood and impact analysis  
+- [ ] Vendor risk assessments
+- [ ] Risk response decisions
+- [ ] Management review/approval of risk assessment
+
+---
+
+### CC3.3: Fraud Risk Assessment
+**Evidence to Collect:**
+- [ ] Fraud risk assessment documentation
+- [ ] Fraud risk scenarios
+- [ ] Incentives, pressures, and opportunity analysis
+- [ ] IT access fraud risks
+- [ ] Anti-fraud controls documentation
+
+---
+
+### CC3.4: Change Assessment
+**Evidence to Collect:**
+- [ ] Change identification and assessment procedures
+- [ ] Documentation of assessed changes:
+  - Regulatory, business, leadership, technology, or vendor changes  
+- [ ] Impact analysis on control system
+
+---
+
+## CC4: Monitoring Activities
+
+### CC4.1: Ongoing and Separate Evaluations
+**Evidence to Collect:**
+- [ ] Monitoring schedule and procedures
+- [ ] Monitoring results (dashboards, alerts)
+- [ ] Separate evaluations (internal audit, pentest, etc.)
+- [ ] Evaluator qualifications
+- [ ] Baseline control documentation
+
+---
+
+### CC4.2: Deficiency Communication
+**Evidence to Collect:**
+- [ ] Identified control deficiencies
+- [ ] Communication to responsible parties
+- [ ] Management/board reporting
+- [ ] Remediation tracking
+- [ ] Corrective action evidence
+- [ ] Follow-up reviews
+
+---
+
+## CC5: Control Activities
+
+### CC5.1: Control Activity Selection
+**Evidence to Collect:**
+- [ ] Risk response and control selection
+- [ ] Control policies and procedures
+- [ ] Mix of control types (preventive/detective)
+- [ ] Segregation of duties matrix
+- [ ] Compensating controls documentation
+
+---
+
+### CC5.2: Technology General Controls
+**Evidence to Collect:**
+- [ ] Infrastructure control documentation
+- [ ] Security management process controls
+- [ ] System acquisition, development, and maintenance
+- [ ] Business process–technology dependency mapping
+
+---
+
+### CC5.3: Control Deployment
+**Evidence to Collect:**
+- [ ] Policies and procedures for controls
+- [ ] Responsibility assignments
+- [ ] Timely execution evidence
+- [ ] Investigation/corrective actions
+- [ ] Control effectiveness reviews
+- [ ] Procedure updates
 
 ---
 
 ## CC6: Logical and Physical Access Controls
 
-### CC6.1: Logical Access Security
-
-**Evidence Type:** Configuration screenshots + exports
-**Collection Method:** Automated + manual screenshots
-**Frequency:** Monthly
-
-**What to Collect:**
-
-#### IAM Configuration
-```bash
-# Generate IAM credential report (shows MFA, password age, access key age)
-aws iam generate-credential-report
-aws iam get-credential-report --output text --query 'Content' | base64 --decode > iam-credential-report-$(date +%Y-%m-%d).csv
-```
-
-- [ ] IAM credential report CSV
-- [ ] Screenshot of IAM password policy
-- [ ] IAM Access Analyzer findings (should be empty or remediated)
-- [ ] Screenshot of root account MFA configuration
-- [ ] List of IAM users with console access
-- [ ] List of IAM roles and their trust policies
-
-#### IAM Identity Center (SSO)
-- [ ] Screenshot of SSO user portal
-- [ ] MFA enforcement configuration
-- [ ] Permission sets list
-- [ ] SAML provider configuration (if applicable)
-- [ ] SSO access logs sample
-
-**Automated Collection Script:**
-```python
-import boto3
-import json
-from datetime import datetime
-
-iam = boto3.client('iam')
-date_str = datetime.now().strftime('%Y-%m-%d')
-
-# Get password policy
-password_policy = iam.get_account_password_policy()
-with open(f'iam-password-policy-{date_str}.json', 'w') as f:
-    json.dump(password_policy, f, indent=2, default=str)
-
-# Get all IAM users
-users = iam.list_users()
-with open(f'iam-users-{date_str}.json', 'w') as f:
-    json.dump(users, f, indent=2, default=str)
-
-# Get MFA devices
-mfa_devices = iam.list_virtual_mfa_devices()
-with open(f'iam-mfa-devices-{date_str}.json', 'w') as f:
-    json.dump(mfa_devices, f, indent=2, default=str)
-```
-
-**Storage Location:** `/CC6/CC6.1/iam-config/YYYY-MM-DD/`
-
----
-
-### CC6.2: User Registration and Authorization
-
-**Evidence Type:** User lifecycle documentation
-**Collection Method:** Manual + automated reports
-**Frequency:** Monthly
-
-**What to Collect:**
-- [ ] New user onboarding requests (tickets)
-- [ ] Access approval workflows (ServiceNow/Jira screenshots)
-- [ ] Termination checklist completed forms
-- [ ] Quarterly access review results
-
-**AWS-Specific Evidence:**
-```bash
-# Get CloudTrail events for IAM user/role creation
-aws cloudtrail lookup-events \
-  --lookup-attributes AttributeKey=EventName,AttributeValue=CreateUser \
-  --start-time $(date -d '30 days ago' +%Y-%m-%d) \
-  --max-results 50 > iam-user-creation-events.json
-```
-
-**Audit Tip:** Auditors will sample 25 employees. For each, be ready to show:
-1. Onboarding ticket with manager approval
-2. IAM user/role creation CloudTrail event
-3. Assigned permission sets
-4. Most recent access review
-
----
-
-### CC6.3: Authorization (Least Privilege)
-
-**Evidence Type:** Permission analysis
-**Collection Method:** Automated analysis
-**Frequency:** Monthly
-
-**What to Collect:**
-- [ ] IAM Access Analyzer findings
-- [ ] IAM policy documents
-- [ ] Security group rules export
-- [ ] Unused credential report
-
-**Automated Collection:**
-```bash
-# Find IAM users with Administrator access
-aws iam get-account-authorization-details \
-  --filter User \
-  --query 'UserDetailList[?AttachedManagedPolicies[?PolicyName==`AdministratorAccess`]].[UserName]' \
-  --output table
-
-# Get all security groups and their rules
-aws ec2 describe-security-groups \
-  --query 'SecurityGroups[*].[GroupId,GroupName,IpPermissions]' \
-  --output json > security-groups-$(date +%Y-%m-%d).json
-
-# Get IAM policies that are too permissive (contain *)
-aws iam list-policies --scope Local \
-  --query 'Policies[*].[PolicyName,Arn]' \
-  --output table
-```
-
-**Storage Location:** `/CC6/CC6.3/least-privilege/YYYY-MM-DD/`
-
----
-
-### CC6.4: Physical Access
-
-**Evidence Type:** Data center documentation
-**Collection Method:** Manual from AWS + your office
-
-**What to Collect:**
-- [ ] AWS SOC 2 report (covers their data centers)
-- [ ] AWS compliance certificates
-- [ ] Your office physical access logs
-- [ ] Badge access system screenshots (if self-hosted servers)
-
-**Audit Tip:** For AWS workloads, you can rely on AWS's SOC 2 report for physical controls. Focus your evidence on:
-- How you verified AWS's controls (reviewed their report)
-- Your own office/facility access if you have on-prem components
-
----
-
-### CC6.6: External Access Protection
-
-**Evidence Type:** Network security configuration
-**Collection Method:** Automated exports
-**Frequency:** Monthly
-
-**What to Collect:**
-```bash
-# Get all internet-facing resources
-aws ec2 describe-instances \
-  --filters "Name=instance-state-name,Values=running" \
-  --query 'Reservations[*].Instances[?PublicIpAddress!=`null`].[InstanceId,PublicIpAddress,SecurityGroups]' \
-  --output table
-
-# Get VPC configuration
-aws ec2 describe-vpcs --output json > vpcs-$(date +%Y-%m-%d).json
-
-# Get NACLs
-aws ec2 describe-network-acls --output json > nacls-$(date +%Y-%m-%d).json
-
-# Get WAF rules
-aws wafv2 list-web-acls --scope REGIONAL --output json > waf-rules-$(date +%Y-%m-%d).json
-```
-
-- [ ] Security group rules (especially port 22, 3389, 443)
-- [ ] NACL configurations
-- [ ] WAF rules and rate limiting
-- [ ] VPN configuration (if applicable)
-- [ ] GuardDuty findings related to network threats
-
-**Storage Location:** `/CC6/CC6.6/network-security/YYYY-MM-DD/`
-
----
-
-### CC6.7: Data Transmission Protection
-
-**Evidence Type:** Encryption configuration
-**Collection Method:** Automated + screenshots
-**Frequency:** Monthly
-
-**What to Collect:**
-```bash
-# Get SSL/TLS configuration for load balancers
-aws elbv2 describe-load-balancers --output json > load-balancers-$(date +%Y-%m-%d).json
-
-aws elbv2 describe-listeners \
-  --load-balancer-arn <ARN> \
-  --query 'Listeners[*].[Protocol,Port,Certificates]' \
-  --output table
-
-# Get S3 bucket encryption status
-aws s3api list-buckets --query 'Buckets[*].Name' --output text | \
-while read bucket; do
-  echo "Bucket: $bucket"
-  aws s3api get-bucket-encryption --bucket $bucket 2>/dev/null || echo "  No encryption"
-done
-```
-
-- [ ] Certificate Manager certificates
-- [ ] Load balancer HTTPS listeners
-- [ ] S3 bucket encryption settings
-- [ ] RDS encryption at rest config
-- [ ] VPN encryption settings
-
-**Storage Location:** `/CC6/CC6.7/encryption-transit/YYYY-MM-DD/`
-
----
-
-### CC6.8: Malware Protection
-
-**Evidence Type:** Scanning configuration and results
-**Collection Method:** Automated + manual
-**Frequency:** Weekly
-
-**What to Collect:**
-- [ ] GuardDuty findings export (malware detections)
-- [ ] Inspector scan results
-- [ ] Third-party antivirus reports (if used on EC2)
-- [ ] ECR image scan results
-```bash
-# Get GuardDuty findings
-aws guardduty list-detectors --output text | while read detector; do
-  aws guardduty list-findings --detector-id $detector --output json > guardduty-findings-$(date +%Y-%m-%d).json
-done
-
-# Get Inspector findings
-aws inspector2 list-findings --output json > inspector-findings-$(date +%Y-%m-%d).json
-```
-
-**Storage Location:** `/CC6/CC6.8/malware-protection/YYYY-MM-DD/`
+### CC6.1–CC6.8
+**Evidence to Collect Includes:**
+- Asset inventory/classifications  
+- Access control rules and authentication policies  
+- Encryption standards and key management  
+- User provisioning and access removal samples  
+- RBAC and least privilege evidence  
+- Physical access logs and badge records  
+- Asset disposal and sanitization proof  
+- Firewall/VPN configurations  
+- DLP, IDS/IPS, and malware protection evidence  
 
 ---
 
 ## CC7: System Operations
 
-### CC7.1: Vulnerability Management
-
-**Evidence Type:** Scan results and remediation tracking
-**Collection Method:** Automated
-**Frequency:** Weekly
-
-**What to Collect:**
-```bash
-# Systems Manager patch compliance
-aws ssm describe-instance-patch-states \
-  --query 'InstancePatchStates[*].[InstanceId,PatchGroup,InstalledCount,InstalledPendingRebootCount,MissingCount]' \
-  --output table > patch-compliance-$(date +%Y-%m-%d).txt
-
-# Inspector vulnerability findings
-aws inspector2 list-findings \
-  --filter-criteria '{"severity":[{"comparison":"EQUALS","value":"CRITICAL"},{"comparison":"EQUALS","value":"HIGH"}]}' \
-  --output json > inspector-vulnerabilities-$(date +%Y-%m-%d).json
-```
-
-- [ ] Weekly vulnerability scan results
-- [ ] Patch compliance dashboard screenshot
-- [ ] Remediation tracking (Jira board screenshot)
-- [ ] Systems Manager patch groups configuration
-
-**Storage Location:** `/CC7/CC7.1/vulnerability-scans/YYYY-MM-DD/`
-
-**Audit Tip:** Show a closed-loop process:
-1. Scan detects vulnerability → Evidence: scan report
-2. Ticket created → Evidence: Jira ticket
-3. Patch applied → Evidence: Config timeline showing fix
-4. Re-scan confirms fix → Evidence: subsequent scan
-
----
-
-### CC7.2: Security Monitoring
-
-**Evidence Type:** Monitoring configuration and alert samples
-**Collection Method:** Screenshots + config exports
-**Frequency:** Monthly
-
-**What to Collect:**
-- [ ] Security Hub dashboard screenshot
-- [ ] CloudWatch alarms list
-- [ ] EventBridge rules for security events
-- [ ] SNS topic subscriptions (who gets alerts)
-- [ ] Sample security alerts (sanitized)
-- [ ] GuardDuty configuration
-```bash
-# Get CloudWatch alarms
-aws cloudwatch describe-alarms --output json > cloudwatch-alarms-$(date +%Y-%m-%d).json
-
-# Get EventBridge rules
-aws events list-rules --output json > eventbridge-rules-$(date +%Y-%m-%d).json
-
-# Get Security Hub enabled standards
-aws securityhub get-enabled-standards --output json > securityhub-standards-$(date +%Y-%m-%d).json
-```
-
-**Storage Location:** `/CC7/CC7.2/monitoring-config/YYYY-MM-DD/`
-
----
-
-### CC7.3: Incident Detection and Analysis
-
-**Evidence Type:** Incident records and response procedures
-**Collection Method:** Manual from incident management system
-**Frequency:** As incidents occur
-
-**What to Collect:**
-- [ ] Incident response playbooks
-- [ ] Security incident tickets (sanitized)
-- [ ] Post-incident review reports
-- [ ] Timeline of detection → response → resolution
-
-**For Each Security Incident:**
-- Ticket number and severity
-- Detection method (which alert/tool found it)
-- Response timeline
-- Root cause analysis
-- Remediation actions
-- Lessons learned
-
-**Audit Tip:** Auditors will sample 2-5 security incidents. Even "false positives" count as good evidence if you documented why they were false positives.
-
-**Storage Location:** `/CC7/CC7.3/incident-responses/YYYY-MM-DD/`
-
----
-
-### CC7.4: Incident Response
-
-**Evidence Type:** Response procedures and evidence of execution
-**Collection Method:** Manual
-
-**What to Collect:**
-- [ ] Incident response plan document
-- [ ] Runbooks for common scenarios
-- [ ] Contact list for incident response team
-- [ ] Tabletop exercise results (quarterly)
-- [ ] Incident retrospectives
-
-**Storage Location:** `/CC7/CC7.4/incident-response-procedures/`
-
----
-
-### CC7.5: Incident Recovery
-
-**Evidence Type:** Recovery procedures and test results
-**Collection Method:** Manual
-
-**What to Collect:**
-- [ ] Disaster recovery plan
-- [ ] Recovery time objective (RTO) documentation
-- [ ] Recovery point objective (RPO) documentation
-- [ ] DR test results (quarterly)
-- [ ] AWS Backup restore test results
-```bash
-# Document backup configuration
-aws backup list-backup-plans --output json > backup-plans-$(date +%Y-%m-%d).json
-
-# Get recent backup jobs
-aws backup list-backup-jobs \
-  --by-created-after $(date -d '7 days ago' --iso-8601) \
-  --output json > recent-backups-$(date +%Y-%m-%d).json
-```
-
-**Storage Location:** `/CC7/CC7.5/recovery-evidence/YYYY-MM-DD/`
+**Key Evidence to Collect:**
+- Configuration standards and monitoring  
+- Vulnerability scans and patching records  
+- Security monitoring policies and logs  
+- Security event evaluation and escalation records  
+- Incident response plans, tickets, and retrospectives  
+- Recovery documentation and lessons learned  
 
 ---
 
 ## CC8: Change Management
 
-### CC8.1: Change Management Process
-
-**Evidence Type:** Change records and approvals
-**Collection Method:** Automated + manual
-**Frequency:** Continuous
-
-**What to Collect:**
-- [ ] Change management policy
-- [ ] Sample change tickets (Jira/ServiceNow)
-- [ ] CloudFormation/Terraform change logs
-- [ ] Config timeline showing changes
-- [ ] Emergency change procedures
-```bash
-# Get CloudFormation stack change sets
-aws cloudformation list-stacks --output json > cloudformation-stacks-$(date +%Y-%m-%d).json
-
-# Get Config timeline for a resource
-aws configservice get-resource-config-history \
-  --resource-type AWS::EC2::SecurityGroup \
-  --resource-id sg-xxxxxxxxx \
-  --later-time $(date -d '30 days ago' --iso-8601) \
-  --output json > config-change-history-sg.json
-```
-
-**For Each Change (Sample 25):**
-- Change ticket with approval
-- What changed (CloudTrail event)
-- Who made the change
-- Config timeline before/after
-
-**Storage Location:** `/CC8/CC8.1/change-records/YYYY-MM-DD/`
-
-**Audit Tip:** Auditors will trace a change from ticket → approval → implementation → verification. Keep your change tickets detailed!
+**Evidence to Collect:**
+- Change management policies/procedures  
+- Change tickets with approvals/testing/docs  
+- Emergency change evidence  
+- Change tracking system outputs  
+- Baseline configuration documentation  
+- Confidential and personal info protection during changes  
 
 ---
 
-## A1: Availability
+## CC9: Risk Mitigation
 
-### A1.1: Capacity Management
-
-**Evidence Type:** Monitoring data and forecasting
-**Collection Method:** Automated
-**Frequency:** Monthly
-
-**What to Collect:**
-```bash
-# Get CloudWatch metrics for key resources
-aws cloudwatch get-metric-statistics \
-  --namespace AWS/EC2 \
-  --metric-name CPUUtilization \
-  --dimensions Name=InstanceId,Value=i-xxxxxxxxx \
-  --start-time $(date -d '30 days ago' --iso-8601) \
-  --end-time $(date --iso-8601) \
-  --period 3600 \
-  --statistics Average,Maximum \
-  --output json > cpu-utilization-$(date +%Y-%m-%d).json
-```
-
-- [ ] CloudWatch dashboards showing capacity trends
-- [ ] Auto-scaling policies and triggers
-- [ ] Resource utilization reports
-- [ ] Capacity planning documentation
-
-**Storage Location:** `/A1/A1.1/capacity-monitoring/YYYY-MM-DD/`
+### CC9.1: Business Disruption Risk Mitigation
+**Evidence to Collect:**
+- [ ] Business continuity and disaster recovery plans  
+- [ ] Business impact analysis  
+- [ ] RTO/RPO documentation  
+- [ ] Backup and recovery arrangements  
+- [ ] Insurance coverage evidence  
+- [ ] Communication plans  
 
 ---
 
-### A1.2: Environmental Protections and Backup
-
-**Evidence Type:** Backup configuration and test results
-**Collection Method:** Automated + manual
-**Frequency:** Monthly
-
-**What to Collect:**
-```bash
-# AWS Backup configuration
-aws backup list-backup-plans --output json > backup-plans-$(date +%Y-%m-%d).json
-
-# Recent successful backups
-aws backup list-backup-jobs \
-  --by-state COMPLETED \
-  --by-created-after $(date -d '30 days ago' --iso-8601) \
-  --output json > completed-backups-$(date +%Y-%m-%d).json
-```
-
-- [ ] Backup plans and schedules
-- [ ] Backup success/failure reports
-- [ ] Cross-region backup configuration
-- [ ] Backup retention policies
-
-**Storage Location:** `/A1/A1.2/backups/YYYY-MM-DD/`
+### CC9.2: Vendor and Business Partner Risk Management
+**Evidence to Collect:**
+- [ ] Vendor management policy and due diligence docs  
+- [ ] Vendor contracts with security/privacy clauses  
+- [ ] Vendor risk assessments  
+- [ ] SLA monitoring and performance reviews  
+- [ ] Vendor certifications and audits  
+- [ ] Escalation/resolution records  
+- [ ] Confidentiality and DPA agreements  
 
 ---
 
-### A1.3: Recovery Testing
+## A1: Additional Criteria for Availability
 
-**Evidence Type:** DR test results
-**Collection Method:** Manual
-**Frequency:** Quarterly
-
-**What to Collect:**
-- [ ] DR test plan
-- [ ] Test execution checklist
-- [ ] RTO/RPO achievement results
-- [ ] Restore test results
-- [ ] Lessons learned documentation
-
-**Audit Tip:** Even if your DR test doesn't go perfectly, document what went wrong and how you fixed it. This shows continuous improvement.
-
-**Storage Location:** `/A1/A1.3/dr-tests/YYYY-MM-DD/`
+**Evidence to Collect:**
+- Capacity management and forecasting reports  
+- Environmental protection and monitoring records  
+- Backup schedules and test results  
+- BC/DR testing documentation  
+- Recovery plan updates and remediation actions  
 
 ---
 
-## C1: Confidentiality
+## C1: Additional Criteria for Confidentiality
 
-### C1.1: Confidential Information Identification
-
-**Evidence Type:** Data classification documentation
-**Collection Method:** Manual
-**Frequency:** Annual or when updated
-
-**What to Collect:**
-- [ ] Data classification policy
-- [ ] Data inventory (what confidential data you store)
-- [ ] S3 bucket classifications
-- [ ] Database schema showing sensitive fields
-- [ ] Tagging standards for confidential data
-
-**Storage Location:** `/C1/C1.1/data-classification/`
+**Evidence to Collect:**
+- Data classification and protection policies  
+- Confidential data inventory  
+- Retention and disposal schedules  
+- Secure destruction documentation  
 
 ---
 
-### C1.2: Confidential Information Disposal
+## PI1: Additional Criteria for Processing Integrity
 
-**Evidence Type:** Disposal procedures and records
-**Collection Method:** Manual
-**Frequency:** As disposals occur
-
-**What to Collect:**
-- [ ] Data retention and disposal policy
-- [ ] S3 lifecycle policies
-- [ ] Records of data disposal (which buckets/databases)
-- [ ] Secure delete procedures for EBS volumes
-```bash
-# Document S3 lifecycle policies
-aws s3api get-bucket-lifecycle-configuration --bucket <bucket-name> --output json
-```
-
-**Storage Location:** `/C1/C1.2/data-disposal/YYYY-MM-DD/`
+**Evidence to Collect:**
+- Input validation and error handling documentation  
+- Processing logic and activity records  
+- Output distribution and accuracy verification  
+- Data storage and archival controls  
 
 ---
 
-## PI1: Processing Integrity
+## P1–P8: Additional Criteria for Privacy
 
-### PI1.1-1.5: Processing Controls
-
-**Evidence Type:** Application controls and monitoring
-**Collection Method:** Varies by application
-
-**What to Collect:**
-- [ ] Input validation rules
-- [ ] Processing logic documentation
-- [ ] Error handling procedures
-- [ ] Data quality monitoring
-- [ ] Output verification procedures
-
-**Note:** Processing integrity is highly application-specific. Focus on:
-- How you ensure data is processed completely
-- How you ensure data is processed accurately
-- How you ensure data is processed in a timely manner
+**Evidence to Collect:**
+- Privacy notices and updates  
+- Consent and opt-in/opt-out records  
+- Collection limitation and lawful methods  
+- Retention, use, and disposal procedures  
+- DSAR and correction request tracking  
+- Disclosure logs and breach notifications  
+- Data quality verification procedures  
+- Privacy monitoring and complaint handling evidence  
 
 ---
 
-## P1-P8: Privacy
+## Audit Preparation Tips
 
-### Privacy Evidence
+### Evidence Organization Best Practices
+1. Maintain evidence **throughout** audit period  
+2. Organize by **control ID (TSC reference)**  
+3. Document **sampling approach** (auditors often select ~25 items)  
+4. Keep evidence **centrally accessible** with naming conventions  
+5. Use **version control** for policies and procedures  
+6. Include **narratives** describing control operation  
 
-**Note:** Privacy controls are complex and often require legal review. Key evidence includes:
+### Common Auditor Requests
+- Population listings for sampling  
+- Traceability from policy → procedure → execution evidence  
+- Period coverage throughout the audit period  
+- Exception and remediation documentation  
+- Management review evidence  
 
-- [ ] Privacy policy (external-facing)
-- [ ] Cookie consent mechanisms
-- [ ] Data subject access request (DSAR) procedures
-- [ ] Records of DSAR fulfillment
-- [ ] Data processing agreements with vendors
-- [ ] Privacy impact assessments
-
----
-
-## Evidence Collection Automation
-
-### Daily Automated Collection Script
-
-Save this as `scripts/daily-evidence-collection.sh`:
-```bash
-#!/bin/bash
-
-# Daily AWS Evidence Collection Script
-# Run via CloudWatch Events / EventBridge
-
-DATE=$(date +%Y-%m-%d)
-EVIDENCE_BUCKET="s3://soc2-audit-evidence-2024"
-
-# Create daily directory structure
-aws s3api put-object --bucket soc2-audit-evidence-2024 --key daily-evidence/${DATE}/
-
-# Collect IAM evidence
-echo "Collecting IAM evidence..."
-aws iam generate-credential-report
-aws iam get-credential-report --output text --query 'Content' | base64 --decode > /tmp/iam-credential-report-${DATE}.csv
-aws s3 cp /tmp/iam-credential-report-${DATE}.csv ${EVIDENCE_BUCKET}/CC6/CC6.1/iam-credentials/${DATE}/
-
-# Collect Security Hub findings
-echo "Collecting Security Hub findings..."
-aws securityhub get-findings \
-  --filters '{"ComplianceStatus":[{"Value":"FAILED","Comparison":"EQUALS"}]}' \
-  --output json > /tmp/securityhub-findings-${DATE}.json
-aws s3 cp /tmp/securityhub-findings-${DATE}.json ${EVIDENCE_BUCKET}/CC7/CC7.2/security-hub/${DATE}/
-
-# Collect Config compliance
-echo "Collecting Config compliance..."
-aws configservice describe-compliance-by-config-rule --output json > /tmp/config-compliance-${DATE}.json
-aws s3 cp /tmp/config-compliance-${DATE}.json ${EVIDENCE_BUCKET}/CC7/CC7.2/config-compliance/${DATE}/
-
-# Collect GuardDuty findings
-echo "Collecting GuardDuty findings..."
-DETECTOR_ID=$(aws guardduty list-detectors --query 'DetectorIds[0]' --output text)
-if [ ! -z "$DETECTOR_ID" ]; then
-  aws guardduty list-findings --detector-id $DETECTOR_ID --output json > /tmp/guardduty-findings-${DATE}.json
-  aws s3 cp /tmp/guardduty-findings-${DATE}.json ${EVIDENCE_BUCKET}/CC7/CC7.2/guardduty/${DATE}/
-fi
-
-# Collect CloudTrail summary (root account usage, IAM changes)
-echo "Collecting critical CloudTrail events..."
-aws cloudtrail lookup-events \
-  --lookup-attributes AttributeKey=EventName,AttributeValue=ConsoleLogin \
-  --start-time $(date -d '1 day ago' --iso-8601) \
-  --output json > /tmp/cloudtrail-logins-${DATE}.json
-aws s3 cp /tmp/cloudtrail-logins-${DATE}.json ${EVIDENCE_BUCKET}/CC6/CC6.2/cloudtrail-logins/${DATE}/
-
-# Collect backup job status
-echo "Collecting backup status..."
-aws backup list-backup-jobs \
-  --by-created-after $(date -d '1 day ago' --iso-8601) \
-  --output json > /tmp/backup-jobs-${DATE}.json
-aws s3 cp /tmp/backup-jobs-${DATE}.json ${EVIDENCE_BUCKET}/A1/A1.2/backup-jobs/${DATE}/
-
-# Clean up temp files
-rm /tmp/*-${DATE}.*
-
-echo "Evidence collection complete for ${DATE}"
-
+### Pre-Audit Validation (2 Weeks Before)
+- [ ] Test sample evidence retrieval  
+- [ ] Verify completeness of quarterly collections  
+- [ ] Confirm current versions of all policies  
+- [ ] Review for evidence gaps  
+- [ ] Prepare management representation letter  
+- [ ] Schedule key personnel for interviews  
