@@ -8,7 +8,11 @@
   - [Amazon GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/)  
   - [Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/)  
   - [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/)  
-  - [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/)  
   - [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/)  
   - [AWS Shield Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html)  
   - [Amazon Macie Documentation](https://docs.aws.amazon.com/macie/latest/userguide/) 
+  - [Amazon Architecture](https://aws.amazon.com/architecture/security-identity-compliance/) 
+  - [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/) 
+  - [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-view-manage.html) 
+
+
