@@ -1,7 +1,10 @@
 # AWS Account Initial Security Setup Checklist
 
 ## Purpose
-This checklist ensures new AWS accounts meet baseline SOC 2 security requirements before deploying workloads. Use this during account provisioning or when inheriting an existing AWS environment.
+This checklist ensures new AWS accounts meet baseline SOC 2 security requirements before deploying workloads.  
+Use this during account provisioning or when inheriting an existing AWS environment.
+
+---
 
 ## Pre-Deployment Security Baseline
 
@@ -29,7 +32,6 @@ This checklist ensures new AWS accounts meet baseline SOC 2 security requirement
   - Password expiration: 90 days
   - Prevent password reuse (last 24 passwords)
   - Enable password expiration warnings
-  
 - [ ] Create IAM administrative role (not users for admins)
 - [ ] Enable IAM Access Analyzer in all regions
 - [ ] Create IAM groups for role-based access:
@@ -37,7 +39,6 @@ This checklist ensures new AWS accounts meet baseline SOC 2 security requirement
   - `Developers` (limited to dev resources)
   - `ReadOnly` (view-only access for auditors)
   - `SecurityAuditors` (security service read access)
-
 - [ ] Implement mandatory MFA for console access
 - [ ] Disable unused regions (reduces attack surface)
 - [ ] Enable IAM Identity Center (SSO) if multi-account
@@ -85,7 +86,6 @@ This checklist ensures new AWS accounts meet baseline SOC 2 security requirement
   - `encrypted-volumes`
   - `rds-encryption-enabled`
   - `cloudtrail-enabled`
-
 - [ ] Configure SNS notifications for compliance changes
 
 **Evidence to Collect:**
@@ -119,7 +119,6 @@ This checklist ensures new AWS accounts meet baseline SOC 2 security requirement
   - RDS databases
   - S3 buckets (sensitive data)
   - Secrets Manager secrets
-  
 - [ ] Document KMS key policies
 - [ ] Enable automatic key rotation (annual)
 - [ ] Restrict KMS key access to specific roles/services
@@ -166,14 +165,12 @@ This checklist ensures new AWS accounts meet baseline SOC 2 security requirement
 ---
 
 ### Backup and Recovery (A1.2, A1.3)
-
 - [ ] Enable AWS Backup in all regions
 - [ ] Create backup plans for:
   - RDS databases (daily, 35-day retention)
   - EBS volumes (tagged as production)
   - EFS file systems
   - DynamoDB tables
-  
 - [ ] Tag resources for automatic backup (`Backup=True`)
 - [ ] Test restore procedures quarterly
 - [ ] Document RTO/RPO requirements
@@ -188,14 +185,12 @@ This checklist ensures new AWS accounts meet baseline SOC 2 security requirement
 ---
 
 ### Incident Response Preparation (CC7.3, CC7.4)
-
 - [ ] Create SNS topics for security alerts
 - [ ] Configure EventBridge rules for critical events:
   - Root account usage
   - IAM policy changes
   - Security group modifications
   - GuardDuty high-severity findings
-  
 - [ ] Document incident response runbooks
 - [ ] Create Lambda functions for automated response
 - [ ] Establish communication channels (Slack/Teams)
@@ -210,25 +205,12 @@ This checklist ensures new AWS accounts meet baseline SOC 2 security requirement
 
 ## Post-Setup Validation
 
-### Automated Checks
-```bash
-# Run AWS Config compliance check
-aws configservice describe-compliance-by-config-rule
-
-# Generate IAM credential report
-aws iam generate-credential-report
-aws iam get-credential-report
-
-# Check Security Hub compliance score
-aws securityhub get-findings --filters '{"ComplianceStatus":[{"Value":"FAILED","Comparison":"EQUALS"}]}'
-```
-
 ### Manual Validation Checklist
 - [ ] Review CloudTrail logs (last 24 hours)
 - [ ] Review Security Hub dashboard
 - [ ] Review Config compliance dashboard
-- [ ] Test MFA enforcement (try to login without MFA)
-- [ ] Test IAM password policy (try weak password)
+- [ ] Test MFA enforcement (attempt login without MFA)
+- [ ] Test IAM password policy (attempt weak password)
 - [ ] Review GuardDuty findings
 - [ ] Verify backup completion
 
@@ -261,17 +243,17 @@ aws securityhub get-findings --filters '{"ComplianceStatus":[{"Value":"FAILED","
 
 ## Common Audit Questions Addressed
 
-**"How do you ensure only authorized users access AWS resources?"**
-→ Point to IAM policies, MFA enforcement, IAM Access Analyzer results
+**Q:** How do you ensure only authorized users access AWS resources?  
+**A:** IAM policies, MFA enforcement, and IAM Access Analyzer validation.
 
-**"How do you track changes to security controls?"**
-→ Point to CloudTrail, Config timeline, EventBridge alerts
+**Q:** How do you track changes to security controls?  
+**A:** CloudTrail, AWS Config timelines, and EventBridge alerts.
 
-**"How do you protect data at rest?"**
-→ Point to KMS encryption, default encryption settings, S3 bucket policies
+**Q:** How do you protect data at rest?  
+**A:** KMS encryption, default encryption enforcement, and S3 bucket policies.
 
-**"How do you detect security incidents?"**
-→ Point to GuardDuty, Security Hub, CloudWatch alarms, EventBridge rules
+**Q:** How do you detect security incidents?  
+**A:** GuardDuty, Security Hub, CloudWatch alarms, and EventBridge rules.
 
-**"How do you ensure business continuity?"**
-→ Point to AWS Backup configurations, tested restore procedures, RTO/RPO documentation
+**Q:** How do you ensure business continuity?  
+**A:** AWS Backup configurations, restore test evidence, and RTO/RPO documentation.
