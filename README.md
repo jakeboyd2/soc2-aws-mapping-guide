@@ -1,9 +1,10 @@
 # SOC 2 to AWS Services Mapping Guide
-<img width="1754" height="904" alt="image" src="https://github.com/user-attachments/assets/ce3b9db2-6e0b-4623-bd44-18ee909c9994" />
+<img width="1753" height="872" alt="image" src="https://github.com/user-attachments/assets/181c8988-329c-4c83-ad18-2d660396c2d5" />
+
 
 > A comprehensive, practical guide for mapping SOC 2 Trust Service Criteria to AWS services, complete with implementation guidance, architecture diagrams, and evidence collection strategies.
 
-## 🎯 Purpose
+##  Purpose
 
 This guide helps organizations preparing for SOC 2 Type II certification understand exactly which AWS services address each SOC 2 control, how to implement them, and what evidence auditors will require.
 
@@ -13,7 +14,7 @@ This guide helps organizations preparing for SOC 2 Type II certification underst
 - GRC professionals transitioning to cloud compliance
 - Security teams implementing AWS controls
 
-## 📊 What's Included
+## What's Included
 
 ### 1. Complete Control Mapping
 - All SOC 2 Trust Service Criteria (CC1-CC9, plus A1, C1)
@@ -35,7 +36,7 @@ This guide helps organizations preparing for SOC 2 Type II certification underst
 - Audit preparation checklist
 
 
-## 🗂️ Repository Structure
+## Repository Structure
 ```
 
 ├── checklists/
@@ -72,13 +73,13 @@ This guide helps organizations preparing for SOC 2 Type II certification underst
 
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 1. **Download the Master Mapping**: [SOC2-AWS-Master-Mapping.xlsx](mappings/SOC2-AWS-Master-Mapping.xlsx)
 2. **Review Architecture Diagrams**: Start with the [compliant web application architecture](diagrams/soc2-compliant-web-app.png)
 3. **Follow Implementation Checklists**: Begin with [AWS Initial Setup](checklists/aws-initial-setup.md)
 
-## 📋 SOC 2 Coverage Summary
+## SOC 2 Coverage Summary
 
 | Trust Service Category | Controls Covered | AWS Services Used |
 |------------------------|------------------|-------------------|
@@ -94,9 +95,9 @@ This guide helps organizations preparing for SOC 2 Type II certification underst
 | A1: Availability | 7 controls | Auto Scaling, Route 53, CloudFront |
 | C1: Confidentiality | 5 controls | KMS, S3 Encryption, VPC |
 
-**Total: 51 controls mapped** ✅
+**Total: 51 controls mapped** 
 
-## 💰 AWS Cost Considerations
+## AWS Cost Considerations
 
 Most AWS services required for SOC 2 compliance fit within free tier or cost < $50/month for small organizations:
 
@@ -107,7 +108,7 @@ Most AWS services required for SOC 2 compliance fit within free tier or cost < $
 
 *Detailed cost breakdown available in the master mapping spreadsheet*
 
-## 📚 How to Use This Guide
+##  How to Use This Guide
 
 ### For First-Time SOC 2 Preparation
 1. Start with [AWS Initial Setup Checklist](checklists/aws-initial-setup.md)
@@ -130,7 +131,7 @@ Most AWS services required for SOC 2 compliance fit within free tier or cost < $
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 This is a living document! Contributions are welcome:
 
@@ -139,30 +140,30 @@ This is a living document! Contributions are welcome:
 - **Want to add a diagram?** Share your architecture
 - **Have audit experience?** Share lessons learned
 
-## 📖 Related Resources
+## Related Resources
 
 - [AWS Security Best Practices](https://aws.amazon.com/architecture/security-identity-compliance/)
 - [AICPA SOC 2 Trust Service Criteria](https://us.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report)
 - [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/)
 - [AWS Security Hub Standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html)
 
-## 📝 Disclaimer
+## Disclaimer
 
 This guide provides general information and should not be considered legal or compliance advice. Each organization's SOC 2 requirements may vary based on their specific Trust Service Criteria selection and auditor requirements. Always consult with qualified compliance professionals and auditors.
 
-## 📬 Connect
+##  Connect
 
 - **Author**: Jake Boyd
 - **[LinkedIn](www.linkedin.com/in/boydjake)**
 - **[Medium](https://medium.com/@jakeboyd)**
 - **Questions?** Open an issue or reach out!
 
-## 📄 License
+##  License
 
 MIT License - Feel free to use this in your organization or adapt for other frameworks
 
 ---
 
-⭐ **Star this repo** if you find it helpful!  
-🔔 **Watch** for updates as we add more controls and diagrams  
-🍴 **Fork** to customize for your organization's needs
+**Star this repo** if you find it helpful!  
+**Watch** for updates as we add more controls and diagrams  
+ **Fork** to customize for your organization's needs
