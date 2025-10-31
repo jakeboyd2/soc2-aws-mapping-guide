@@ -1,0 +1,1 @@
+<content of mappings/CC1-control-environment.md>

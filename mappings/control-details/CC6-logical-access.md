@@ -1,0 +1,1 @@
+<content of mappings/CC6-logical-access.md>

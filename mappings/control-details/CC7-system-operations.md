@@ -1,0 +1,1 @@
+<content of mappings/CC7-system-operations.md>
