@@ -165,5 +165,4 @@ MIT License - Feel free to use this in your organization or adapt for other fram
 ---
 
 **Star this repo** if you find it helpful!  
-**Watch** for updates as we add more controls and diagrams  
  **Fork** to customize for your organization's needs
