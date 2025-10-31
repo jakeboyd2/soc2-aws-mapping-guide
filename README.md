@@ -1,4 +1,5 @@
 # SOC 2 to AWS Services Mapping Guide
+<img width="1754" height="904" alt="image" src="https://github.com/user-attachments/assets/ce3b9db2-6e0b-4623-bd44-18ee909c9994" />
 
 > A comprehensive, practical guide for mapping SOC 2 Trust Service Criteria to AWS services, complete with implementation guidance, architecture diagrams, and evidence collection strategies.
 
