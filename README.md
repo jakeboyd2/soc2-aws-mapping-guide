@@ -118,8 +118,7 @@ Most AWS services required for SOC 2 compliance fit within free tier or cost < $
 ### For Audit Preparation
 1. Use the [Pre-Audit Checklist](checklists/pre-audit-checklist.md)
 2. Reference control-specific guides in `mappings/control-details/`
-3. Collect evidence using examples from `examples/screenshots/`
-4. Share relevant architecture diagrams with your auditor
+3. Share relevant architecture diagrams with your auditor
 
 ### For Architecture Design
 1. Review reference diagrams in `diagrams/`
