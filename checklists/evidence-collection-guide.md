@@ -693,4 +693,33 @@ aws s3 cp /tmp/securityhub-findings-${DATE}.json ${EVIDENCE_BUCKET}/CC7/CC7.2/se
 # Collect Config compliance
 echo "Collecting Config compliance..."
 aws configservice describe-compliance-by-config-rule --output json > /tmp/config-compliance-${DATE}.json
-aws s3 cp /tmp
+aws s3 cp /tmp/config-compliance-${DATE}.json ${EVIDENCE_BUCKET}/CC7/CC7.2/config-compliance/${DATE}/
+
+# Collect GuardDuty findings
+echo "Collecting GuardDuty findings..."
+DETECTOR_ID=$(aws guardduty list-detectors --query 'DetectorIds[0]' --output text)
+if [ ! -z "$DETECTOR_ID" ]; then
+  aws guardduty list-findings --detector-id $DETECTOR_ID --output json > /tmp/guardduty-findings-${DATE}.json
+  aws s3 cp /tmp/guardduty-findings-${DATE}.json ${EVIDENCE_BUCKET}/CC7/CC7.2/guardduty/${DATE}/
+fi
+
+# Collect CloudTrail summary (root account usage, IAM changes)
+echo "Collecting critical CloudTrail events..."
+aws cloudtrail lookup-events \
+  --lookup-attributes AttributeKey=EventName,AttributeValue=ConsoleLogin \
+  --start-time $(date -d '1 day ago' --iso-8601) \
+  --output json > /tmp/cloudtrail-logins-${DATE}.json
+aws s3 cp /tmp/cloudtrail-logins-${DATE}.json ${EVIDENCE_BUCKET}/CC6/CC6.2/cloudtrail-logins/${DATE}/
+
+# Collect backup job status
+echo "Collecting backup status..."
+aws backup list-backup-jobs \
+  --by-created-after $(date -d '1 day ago' --iso-8601) \
+  --output json > /tmp/backup-jobs-${DATE}.json
+aws s3 cp /tmp/backup-jobs-${DATE}.json ${EVIDENCE_BUCKET}/A1/A1.2/backup-jobs/${DATE}/
+
+# Clean up temp files
+rm /tmp/*-${DATE}.*
+
+echo "Evidence collection complete for ${DATE}"
+
