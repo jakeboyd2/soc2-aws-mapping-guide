@@ -48,21 +48,27 @@ This guide helps organizations preparing for SOC 2 Type II certification underst
 |   ├── multi-account-organization-structure.png      # How to organize AWS accounts for compliance
 |   ├── secure-data-storage-and-encryption.png        # How data is encrypted everywhere
 │   └── soc2-compliant-web-app.png                    # SOC 2 compliant web application architecture
-└── mappings/
-    ├── SOC2-AWS-Master-Mapping.xlsx     # Main mapping spreadsheet
-    ├── SOC2-AWS-Master-Mapping.pdf      # PDF version for easy sharing
-    └── control-details/                 
-        ├── A1-availability.md           # Ensures system uptime, capacity, and recovery
-        ├── C1-confidentiality.md        # Protects data from unauthorized access
-        ├── CC1-control-environment.md   # Establishes governance and accountability
-        ├── CC2-communication.md         # Ensures timely, accurate information sharing
-        ├── CC3-risk-assessment.md       # Identifies and analyzes system risks
-        ├── CC4-monitoring.md            # Evaluates control performance and issues
-        ├── CC5-control-activities.md    # Implements policies to mitigate risks
-        ├── CC6-logical-access.md        # Restricts access to authorized users
-        ├── CC7-system-operations.md     # Monitors and responds to system events
-        ├── CC8-change-management.md     # Controls and reviews system changes
-        └── CC9-risk-mitigation.md       # Reduces impact of disruptions and threats
+├── mappings/
+|   ├── SOC2-AWS-Master-Mapping.xlsx        # Main mapping spreadsheet
+|   ├── SOC2-AWS-Master-Mapping.pdf         # PDF version for easy sharing
+|   └── control-details/                 
+|       ├── A1-availability.md           # Ensures system uptime, capacity, and recovery
+|       ├── C1-confidentiality.md        # Protects data from unauthorized access
+|       ├── CC1-control-environment.md   # Establishes governance and accountability
+|       ├── CC2-communication.md         # Ensures timely, accurate information sharing
+|       ├── CC3-risk-assessment.md       # Identifies and analyzes system risks
+|       ├── CC4-monitoring.md            # Evaluates control performance and issues
+|       ├── CC5-control-activities.md    # Implements policies to mitigate risks
+|       ├── CC6-logical-access.md        # Restricts access to authorized users
+|       ├── CC7-system-operations.md     # Monitors and responds to system events
+|       ├── CC8-change-management.md     # Controls and reviews system changes
+|       └── CC9-risk-mitigation.md       # Reduces impact of disruptions and threats
+├── resources/
+|   ├── AICPA Trust Service Criteria 2017.pdf    # Trust Services Criteria 
+|   └── aws                                      # AWS resources
+├── LICENSE                # MIT license
+└── README.md              # You are here
+
 
 ```
 
