@@ -99,7 +99,7 @@ Most AWS services required for SOC 2 compliance fit within free tier or cost < $
 
 ### For First-Time SOC 2 Preparation
 1. Start with [AWS Initial Setup Checklist](checklists/aws-initial-setup.md)
-2. Review the [Master Mapping Spreadsheet](mappings/SOC2-AWS-Master-Mapping.xlsx)
+2. Review the [Master Mapping Spreadsheet](mappings/SOC2-AWS-Master-Mapping.csv)
 3. Implement controls prioritized by risk level (High → Medium → Low)
 4. Use the [Evidence Collection Guide](checklists/evidence-collection-guide.md) throughout
 
