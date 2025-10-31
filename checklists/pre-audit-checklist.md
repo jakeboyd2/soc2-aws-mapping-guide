@@ -435,7 +435,8 @@ Compile all final documentation and evidence in clearly labeled folders for easy
 Anticipate and prepare responses to common auditor questions for consistency and clarity.
 
 **Template:**
-```markdown
+
+markdown
 # Anticipated Auditor Questions - Quick Reference
 
 ## Access Control
@@ -483,3 +484,4 @@ A:
 - Non-critical systems: RTO 48 hours, RPO 48 hours
 
 See RTO/RPO matrix in Package 7.
+
