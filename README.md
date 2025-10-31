@@ -33,13 +33,20 @@ This guide helps organizations preparing for SOC 2 Type II certification underst
 - Evidence collection procedures
 - Audit preparation checklist
 
-### 4. Real-World Examples
-- Screenshots from AWS Console
-- Sample evidence artifacts
-- Common pitfalls and how to avoid them
 
 ## 🗂️ Repository Structure
 ```
+
+├── checklists/
+│   ├── aws-initial-setup.md
+│   ├── evidence-collection-guide.md
+│   └── pre-audit-checklist.md
+├── diagrams/
+│   ├── CI/CD-pipeline-with-security-controls.png
+│   ├── logging-monitoring-and-incident-response.png
+|   ├── multi-account-organization-structure.png
+|   ├── secure-data-storage-and-encryption.png
+│   └── soc2-compliant-web-app.png
 ├── mappings/
 │   ├── SOC2-AWS-Master-Mapping.xlsx     # Main mapping spreadsheet
 │   ├── SOC2-AWS-Master-Mapping.pdf      # PDF version for easy sharing
@@ -48,16 +55,7 @@ This guide helps organizations preparing for SOC 2 Type II certification underst
 │       ├── CC6-logical-access.md
 │       ├── CC7-system-operations.md
 │       └── CC8-change-management.md
-├── diagrams/
-│   ├── soc2-compliant-web-app.png
-│   ├── secure-data-architecture.png
-│   └── logging-monitoring-setup.png
-├── checklists/
-│   ├── aws-initial-setup.md
-│   ├── pre-audit-checklist.md
-│   └── evidence-collection-guide.md
-└── examples/
-    └── screenshots/                      # AWS console screenshots
+
 ```
 
 ## 🚀 Quick Start
