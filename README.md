@@ -118,7 +118,7 @@ Most AWS services required for SOC 2 compliance fit within free tier or cost < $
 
 ### 1. SOC 2 Compliant Web Application
 
-![SOC 2 Compliant Web Application Architecture](https://github.com/user-attachments/assets/0b77fb5b-139f-44cf-adfc-ab36384bcc5c) />
+![SOC 2 Compliant Web Application Architecture](https://github.com/user-attachments/assets/0b77fb5b-139f-44cf-adfc-ab36384bcc5c) 
 
 
 
@@ -131,7 +131,6 @@ Most AWS services required for SOC 2 compliance fit within free tier or cost < $
 
 **Estimated Monthly Cost**: $150-300 for small production workload
 
-**[Download High-Res PDF](diagrams/soc2-compliant-web-app.pdf)** | **[Edit Source File](diagrams/source-files/soc2-compliant-web-app.drawio)**
 
 ---
 
