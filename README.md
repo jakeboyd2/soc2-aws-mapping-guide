@@ -65,7 +65,7 @@ This guide helps organizations preparing for SOC 2 Type II certification underst
 |       └── CC9-risk-mitigation.md       # Reduces impact of disruptions and threats
 ├── resources/
 |   ├── AICPA Trust Service Criteria 2017.pdf    # Trust Services Criteria 
-|   └── aws                                      # AWS resources
+|   └── aws.md                                   # AWS resources
 ├── LICENSE                # MIT license
 └── README.md              # You are here
 
